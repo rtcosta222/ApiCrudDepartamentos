@@ -78,11 +78,11 @@ public class RepositoryDepartamentos {
     
     public void modificarDepartamento(int id, String nom, String loc) throws SQLException{
         Connection cn = this.getConnection();
-        String sql = "insert into dept set dnombre=?, loc=? where dept_no=?";
+        String sql = "update dept set dnombre=?, loc=? where dept_no=?";
         PreparedStatement pst = cn.prepareStatement(sql);
-        pst.setInt(3, id);
         pst.setString(1, nom);
         pst.setString(2, loc);
+        pst.setInt(3, id);
         pst.executeUpdate();
         cn.close();
     }
